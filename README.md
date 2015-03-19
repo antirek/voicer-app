@@ -19,7 +19,7 @@ Prepare
 > npm install
 
 ## Step 2. Configure config.js ##
-
+`````
 {
     port: 3000,           //server listen port
     totalAttempts: 2,     //total attempts of recognition each call
@@ -54,7 +54,7 @@ Prepare
         }
     }
 }
-
+`````
 ## Step 3. Configure Asterisk ##
 
 Write simple dialplan
