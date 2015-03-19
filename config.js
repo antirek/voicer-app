@@ -1,17 +1,17 @@
 module.exports = {
     port: 3000,
-    debug: true,
+    totalAttempts: 2,
     record: {
-    	directory: '/tmp',
-    	type: 'wav',
-    	duration: 2,
+        directory: '/tmp',
+        type: 'wav',
+        duration: 2,
     },
     recognize: {
-    	directory: '/tmp',
-    	type: 'google',  // ['yandex', 'google']
-    	options: {
-    		developer_key: 'AIzaSyDlK5-IadfJtgrfJsi5mdOF-9kzTS_tqh0'
-    	}
+        directory: '/tmp',
+        type: 'google',  // ['yandex', 'google']
+        options: {
+            developer_key: 'AIzaSyBADnl17W926EkbgSJ1yJ0RtpwpJbELxxc'
+        }
     },
     lookup: {
         type: 'file',  // ['file', 'mongodb', 'mysql']

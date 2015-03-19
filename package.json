@@ -1,6 +1,6 @@
 {
   "name": "voicer-app",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Voicer app",
   "main": "app.js",
   "scripts": {
@@ -11,12 +11,12 @@
     "url": "https://github.com/antirek/voicer-app.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/antirek/voicer-app/issues"
   },
   "homepage": "https://github.com/antirek/voicer-app",
   "dependencies": {
-    "voicer": "^0.1.0"
+    "voicer": "^0.1.2"
   }
 }
