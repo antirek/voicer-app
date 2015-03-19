@@ -15,8 +15,11 @@ Prepare
 ## Step 1. Install it ##
 
 > git clone https://github.com/antirek/voicer-app.git
+
 > cd voicer-app
+
 > npm install
+
 
 ## Step 2. Configure config.js ##
 `````
@@ -55,6 +58,8 @@ Prepare
     }
 }
 `````
+
+
 ## Step 3. Configure Asterisk ##
 
 Write simple dialplan
@@ -64,9 +69,12 @@ Write simple dialplan
 exten = > 1000,1,AGI(agi://localhost:3000)
 `````
 
+
 ## Step 4. Run app ##
 
 > node app.js
+
+And now make call to 1000. Work? If not, view logs.
 
 
 
