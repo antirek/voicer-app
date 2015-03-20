@@ -1,6 +1,23 @@
 module.exports = {
-    port: 3000,
-    totalAttempts: 2,
+    server: {
+        port: 3000
+    },
+    processing: {
+        totalAttempts: 2,
+        playGreeting: true,
+        playBeepBeforeRecording: false
+    },
+    asterisk: {
+        sounds: {
+            onErrorBeforeFinish: 'invalid',
+            onErrorBeforeRepeat: 'invalid',
+            greeting: 'tt-monkeysintro'
+        },
+        recognitionDialplanVars: {
+            result: 'RECOGNITION_RESULT',
+            channel: 'RECOGNITION_CHANNEL'
+        }
+    },
     record: {
         directory: '/tmp',
         type: 'wav',
@@ -10,7 +27,7 @@ module.exports = {
         directory: '/tmp',
         type: 'google',  // ['yandex', 'google']
         options: {
-            developer_key: 'AIzaSyBADnl17W926EkbgSJ1yJ0RtpwpJbELxxc'
+            developer_key: 'AIzaSyCasG272lrvx2e7FgbjTGFp9X7kHQFk71Y'
         }
     },
     lookup: {

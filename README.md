@@ -24,18 +24,35 @@ Prepare
 ## Step 2. Configure config.js ##
 `````
 {
-    port: 3000,           //server listen port
-    totalAttempts: 2,     //total attempts of recognition each call
+    server: {
+        port: 3000
+    },
+    processing: {
+        totalAttempts: 2,
+        playGreeting: true,
+        playBeepBeforeRecording: false
+    },
+    asterisk: {
+        sounds: {
+            onErrorBeforeFinish: 'invalid',
+            onErrorBeforeRepeat: 'invalid',
+            greeting: 'tt-monkeysintro'
+        },
+        recognitionDialplanVars: {
+            result: 'RECOGNITION_RESULT',
+            channel: 'RECOGNITION_CHANNEL'
+        }
+    },
     record: {
-        directory: '/tmp',  //directory for record
-        type: 'wav',        //extension of record file
-        duration: 2,        //duration of record file
+        directory: '/tmp',
+        type: 'wav',
+        duration: 2,
     },
     recognize: {
-        directory: '/tmp',  //directory of record for app
+        directory: '/tmp',
         type: 'google',  // ['yandex', 'google']
         options: {
-            developer_key: 'AIzaSyBADnl17W926EkbgSJ1yJ0RtpwpJbELxxc'
+            developer_key: 'AIzaSyCasG272lrvx2e7FgbjTGFp9X7kHQFk71Y'
         }
     },
     lookup: {
@@ -45,13 +62,13 @@ Prepare
         }
     },
     logger: {
-        console: {             //use console
+        console: {
             colorize: true
         },
-        syslog: {              //use syslog
+        syslog: {
             host: 'localhost'
         },
-        file: {                //use file
+        file: {
             filename: '/var/log/voicer.log',
             json: false
         }
@@ -59,14 +76,15 @@ Prepare
 }
 `````
 
-
 ## Step 3. Configure Asterisk ##
 
 Write simple dialplan
 
 `````
 [default]
-exten = > 1000,1,AGI(agi://localhost:3000)
+exten=1000,1,AGI(agi://localhost:3000)
+exten=1000,n,GotoIf($[${RECOGNITION_RESULT}=SUCCESS]?:default,1000,4)
+exten=1000,n,Dial(${RECOGNITION_CHANNEL})
 `````
 
 
@@ -75,6 +93,10 @@ exten = > 1000,1,AGI(agi://localhost:3000)
 > node app.js
 
 And now make call to 1000. Work? If not, view logs.
+
+
+
+More info about voicer http://github.com/antirek/voicer
 
 
 
