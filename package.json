@@ -1,6 +1,6 @@
 {
   "name": "voicer-app",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Voicer app",
   "main": "app.js",
   "scripts": {
@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/antirek/voicer-app",
   "dependencies": {
-    "voicer": "^0.1.3"
+    "voicer": "^0.1.5"
   }
 }

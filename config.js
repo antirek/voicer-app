@@ -1,6 +1,9 @@
 module.exports = {
-    server: {
+    agi: {
         port: 3000
+    },
+    web: {
+        port: 3100
     },
     processing: {
         totalAttempts: 2,
@@ -11,11 +14,11 @@ module.exports = {
         sounds: {
             onErrorBeforeFinish: 'invalid',
             onErrorBeforeRepeat: 'invalid',
-            greeting: 'tt-monkeysintro'
+            greeting: 'beep'
         },
         recognitionDialplanVars: {
             result: 'RECOGNITION_RESULT',
-            channel: 'RECOGNITION_CHANNEL'
+            target: 'RECOGNITION_TARGET'
         }
     },
     record: {
