@@ -17,7 +17,7 @@ module.exports = {
             greeting: 'beep'
         },
         recognitionDialplanVars: {
-            result: 'RECOGNITION_RESULT',
+            status: 'RECOGNITION_RESULT',
             target: 'RECOGNITION_TARGET'
         }
     },
@@ -30,7 +30,7 @@ module.exports = {
         directory: '/tmp',
         type: 'google',  // ['yandex', 'google']
         options: {
-            developer_key: 'AIzaSyCasG272lrvx2e7FgbjTGFp9X7kHQFk71Y'
+            developer_key: 'AIzaSyBmdtN0y0DwFnIIZgTJyBXLP_M8nsRBcDw'
         }
     },
     lookup: {
@@ -42,10 +42,7 @@ module.exports = {
     logger: {
         console: {
             colorize: true
-        },
-        syslog: {
-            host: 'localhost'
-        },
+        },        
         file: {
             filename: '/var/log/voicer.log',
             json: false
