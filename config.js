@@ -3,12 +3,16 @@ module.exports = {
         port: 3000
     },
     web: {
-        port: 3100
+        port: 3100,
+        auth: true,
+        username: 'vasya',
+        password: 'password',
+        realm: 'My company'
     },
     processing: {
         totalAttempts: 2,
         playGreeting: true,
-        playBeepBeforeRecording: false
+        playBeepBeforeRecording: false   //use system beep
     },
     asterisk: {
         sounds: {
@@ -17,24 +21,24 @@ module.exports = {
             greeting: 'beep'
         },
         recognitionDialplanVars: {
-            result: 'RECOGNITION_RESULT',
+            status: 'RECOGNITION_RESULT',
             target: 'RECOGNITION_TARGET'
         }
     },
     record: {
-        directory: '/tmp',
-        type: 'wav',
-        duration: 2,
+    	directory: '/tmp',
+    	type: 'wav',
+    	duration: 2,
     },
     recognize: {
-        directory: '/tmp',
-        type: 'google',  // ['yandex', 'google']
+    	directory: '/tmp',
+        type: 'witai',    // ['yandex', 'google', 'witai']
         options: {
-            developer_key: 'AIzaSyCasG272lrvx2e7FgbjTGFp9X7kHQFk71Y'
+            developer_key: '6SQV3DEGQWIXW3R2EDFUMPQCVGOEIBCR'
         }
     },
     lookup: {
-        type: 'file',  // ['file', 'mongodb', 'mysql']
+        type: 'file',
         options: {
             dataFile: 'data/peernames.json'
         }
@@ -42,9 +46,6 @@ module.exports = {
     logger: {
         console: {
             colorize: true
-        },
-        syslog: {
-            host: 'localhost'
         },
         file: {
             filename: '/var/log/voicer.log',

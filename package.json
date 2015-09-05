@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/antirek/voicer-app",
   "dependencies": {
-    "voicer": "^0.1.5"
+    "voicer": "^0.1.8"
   }
 }
