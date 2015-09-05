@@ -34,11 +34,7 @@ module.exports = {
     	directory: '/tmp',
         type: 'witai',    // ['yandex', 'google', 'witai']
         options: {
-<<<<<<< HEAD
             developer_key: '6SQV3DEGQWIXW3R2EDFUMPQCVGOEIBCR'
-=======
-            developer_key: 'AIzaSyBmdtN0y0DwFnIIZgTJyBXLP_M8nsRBcDw'
->>>>>>> d367e315e4a308920a05fe81071e47356561c841
         }
     },
     lookup: {
@@ -50,11 +46,7 @@ module.exports = {
     logger: {
         console: {
             colorize: true
-<<<<<<< HEAD
         },
-=======
-        },        
->>>>>>> d367e315e4a308920a05fe81071e47356561c841
         file: {
             filename: '/var/log/voicer.log',
             json: false

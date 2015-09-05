@@ -23,24 +23,31 @@ Prepare
 
 ## Step 2. Configure config.js ##
 `````
-{
-    server: {
+module.exports = {
+    agi: {
         port: 3000
+    },
+    web: {
+        port: 3100,
+        auth: true,
+        username: 'vasya',
+        password: 'password',
+        realm: 'My company'
     },
     processing: {
         totalAttempts: 2,
         playGreeting: true,
-        playBeepBeforeRecording: false
+        playBeepBeforeRecording: false   //use system beep
     },
     asterisk: {
         sounds: {
             onErrorBeforeFinish: 'invalid',
             onErrorBeforeRepeat: 'invalid',
-            greeting: 'tt-monkeysintro'
+            greeting: 'beep'
         },
         recognitionDialplanVars: {
             status: 'RECOGNITION_RESULT',
-            channel: 'RECOGNITION_CHANNEL'
+            target: 'RECOGNITION_TARGET'
         }
     },
     record: {
@@ -50,9 +57,9 @@ Prepare
     },
     recognize: {
         directory: '/tmp',
-        type: 'google',  // ['yandex', 'google']
+        type: 'witai',    // ['yandex', 'google', 'witai']
         options: {
-            developer_key: 'AIzaSyCasG272lrvx2e7FgbjTGFp9X7kHQFk71Y'
+            developer_key: '6SQV3DEGQWIXW3R2EDFUMPQCVGOEIBCR'
         }
     },
     lookup: {
@@ -64,13 +71,13 @@ Prepare
     logger: {
         console: {
             colorize: true
-        },       
+        },
         file: {
             filename: '/var/log/voicer.log',
             json: false
         }
     }
-}
+};
 `````
 
 ## Step 3. Configure Asterisk ##
@@ -81,7 +88,7 @@ Write simple dialplan
 [default]
 exten=1000,1,AGI(agi://localhost:3000)
 exten=1000,n,GotoIf($[${RECOGNITION_RESULT}=SUCCESS]?:default,1000,4)
-exten=1000,n,Dial(${RECOGNITION_CHANNEL})
+exten=1000,n,Dial(${RECOGNITION_TARGET})
 `````
 
 
