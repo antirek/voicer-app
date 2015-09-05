@@ -39,7 +39,7 @@ Prepare
             greeting: 'tt-monkeysintro'
         },
         recognitionDialplanVars: {
-            result: 'RECOGNITION_RESULT',
+            status: 'RECOGNITION_RESULT',
             channel: 'RECOGNITION_CHANNEL'
         }
     },
@@ -56,7 +56,7 @@ Prepare
         }
     },
     lookup: {
-        type: 'file',  // ['file', 'mongodb', 'mysql']
+        type: 'file',
         options: {
             dataFile: 'data/peernames.json'
         }
@@ -64,10 +64,7 @@ Prepare
     logger: {
         console: {
             colorize: true
-        },
-        syslog: {
-            host: 'localhost'
-        },
+        },       
         file: {
             filename: '/var/log/voicer.log',
             json: false
